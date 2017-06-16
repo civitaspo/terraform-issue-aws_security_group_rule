@@ -22,12 +22,11 @@ Could you help with this issue?
 
 # How to reproduce the issue
 
-You need to prepare access_key_id & secret_access_key before, then...
-
 ```
-$ ./prepare.sh
-$ ./terraform apply
-$ ./terraform apply
+$ ./prepare.sh      # input access_key_id & secret_access_key on prompt.
+$ ./terraform apply # will create resources correctly
+$ ./terraform apply # will delete rules defined by `aws_security_group_rule`.
+$ ./terraform apply # will create resources correctly, again.
 ```
 
 # Environment
