@@ -11,13 +11,13 @@ Example Case:
 - `security_group a` has `security_group c` as egress.
 - `security_group b` has `security_group c` as egress.
 - `security_group a` want to have `security_group b` as egress.
-- And also `security_group b` want to have `security_group a`.
+- `security_group b` want to have `security_group a` as egress.
 
-In this case, I define cycle refering security group by using `aws_security_group_rule`.
-However, `aws_security_group_rule` defined above is redefined again and again.
-This `redefine` means the security group is deleted first, then re-applied in next time, and then in the next time this is deleted.
+In this case, I define a refering security group cycle by using `aws_security_group_rule`.
+However, `aws_security_group_rule` defined above is *redefined* again and again in subsequent executions.
+This *redefine* means the security group is deleted first, then re-applied in next time, and then in the next time this is deleted again.
 Since the security group is deleted once, I cannot apply the tf to production now.
-Could you help it?
+Could you help with this issue?
 
 
 # How to reproduce the issue
